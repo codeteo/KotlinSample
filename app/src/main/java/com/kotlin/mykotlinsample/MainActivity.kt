@@ -10,6 +10,7 @@ import butterknife.bindView
 class MainActivity : AppCompatActivity() {
 
     val tvHello: TextView by bindView(R.id.tv_hello)
+    val tvIncrement: TextView by bindView(R.id.tv_increment)
     val btnHi: Button by bindView(R.id.btn_hi)
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -19,13 +20,24 @@ class MainActivity : AppCompatActivity() {
         tvHello.text = resources.getString(R.string.tv_hello)
 
         btnHi.setOnClickListener{
-            toast()
+            toast(increment().toString())
         }
 
     }
 
-    fun toast() {
-        Toast.makeText(this, "Clicked", Toast.LENGTH_LONG).show()
+    fun toast(msg: String) {
+        Toast.makeText(this, "Clicked : $msg", Toast.LENGTH_LONG).show()
+    }
+
+    fun increment(): Int {
+        val counterString = tvIncrement.text.toString()
+
+        var counter: Int = Integer.parseInt(counterString)
+        counter++
+
+        tvIncrement.text = counter.toString()
+
+        return counter
     }
 
 }

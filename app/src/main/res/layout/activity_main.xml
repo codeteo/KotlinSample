@@ -10,8 +10,19 @@
         app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent" app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/btn_hi" android:text="Hi" android:textAppearance="@style/Base.TextAppearance.AppCompat.Headline"
-        android:layout_width="wrap_content" android:layout_height="wrap_content" />
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent" android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/btn_hi" android:text="Hi" android:textAppearance="@style/Base.TextAppearance.AppCompat.Headline"
+            android:layout_width="wrap_content" android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/tv_increment"
+            android:text="1" android:textSize="22sp"
+            android:layout_width="wrap_content" android:layout_height="wrap_content" />
+
+    </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>
