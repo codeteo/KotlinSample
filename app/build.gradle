@@ -37,6 +37,8 @@ def getApiKey(){
 
 ext {
     supportLibVersion = '26.0.1'
+    retrofitVersion = '2.2.0'
+    okhttpVersion = '3.7.0'
     daggerVersion = '2.10'
 }
 
@@ -58,4 +60,12 @@ dependencies {
     implementation "com.google.dagger:dagger:$daggerVersion"
     kapt "com.google.dagger:dagger-compiler:$daggerVersion"
 
+    // retrofit
+    implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:$retrofitVersion"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofitVersion"
+
+    // okHttp
+    implementation "com.squareup.okhttp3:okhttp:$okhttpVersion"
+    implementation "com.squareup.okhttp3:logging-interceptor:$okhttpVersion"
 }
