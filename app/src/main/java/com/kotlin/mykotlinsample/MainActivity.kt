@@ -1,11 +1,13 @@
 package com.kotlin.mykotlinsample
 
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import butterknife.bindView
+import javax.inject.Inject
 
 class MainActivity : AppCompatActivity() {
 
@@ -13,9 +15,14 @@ class MainActivity : AppCompatActivity() {
     val tvIncrement: TextView by bindView(R.id.tv_increment)
     val btnHi: Button by bindView(R.id.btn_hi)
 
+    @Inject
+    lateinit var sharedPreferences: SharedPreferences
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        (application as MyApplication).applicationComponent.inject(this)
 
         tvHello.text = resources.getString(R.string.tv_hello)
 
