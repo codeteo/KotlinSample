@@ -1,4 +1,4 @@
-package com.kotlin.mykotlinsample
+package com.kotlin.mykotlinsample.main
 
 import android.content.SharedPreferences
 import android.os.Bundle
@@ -7,6 +7,8 @@ import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import butterknife.bindView
+import com.kotlin.mykotlinsample.MyApplication
+import com.kotlin.mykotlinsample.R
 import javax.inject.Inject
 
 class MainActivity : AppCompatActivity() {

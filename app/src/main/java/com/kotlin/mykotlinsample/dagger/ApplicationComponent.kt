@@ -1,6 +1,6 @@
 package com.kotlin.mykotlinsample.dagger
 
-import com.kotlin.mykotlinsample.MainActivity
+import com.kotlin.mykotlinsample.main.MainActivity
 import dagger.Component
 import javax.inject.Singleton
 
