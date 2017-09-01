@@ -1,8 +1,8 @@
 package com.kotlin.mykotlinsample
 
 import android.app.Application
-import com.kotlin.mykotlinsample.dagger.ApplicationComponent
-import com.kotlin.mykotlinsample.dagger.ApplicationModule
+import com.kotlin.mykotlinsample.dagger.components.ApplicationComponent
+import com.kotlin.mykotlinsample.dagger.modules.ApplicationModule
 import com.kotlin.mykotlinsample.dagger.DaggerApplicationComponent
 
 /**

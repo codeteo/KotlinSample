@@ -1,4 +1,4 @@
-package com.kotlin.mykotlinsample.dagger
+package com.kotlin.mykotlinsample.dagger.modules
 
 import android.app.Application
 import android.content.SharedPreferences

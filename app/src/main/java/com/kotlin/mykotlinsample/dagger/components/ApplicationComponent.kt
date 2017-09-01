@@ -1,5 +1,7 @@
-package com.kotlin.mykotlinsample.dagger
+package com.kotlin.mykotlinsample.dagger.components
 
+import android.app.Application
+import com.kotlin.mykotlinsample.dagger.modules.ApplicationModule
 import com.kotlin.mykotlinsample.main.MainActivity
 import dagger.Component
 import javax.inject.Singleton
@@ -13,5 +15,7 @@ import javax.inject.Singleton
 interface ApplicationComponent {
 
     fun inject(activity: MainActivity)
+
+    fun application(): Application
 
 }
