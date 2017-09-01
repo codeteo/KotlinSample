@@ -39,6 +39,7 @@ ext {
     supportLibVersion = '26.0.1'
     retrofitVersion = '2.2.0'
     okhttpVersion = '3.7.0'
+    gsonVersion = '2.8.1'
     daggerVersion = '2.10'
 }
 
@@ -62,10 +63,12 @@ dependencies {
 
     // retrofit
     implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
-    implementation "com.squareup.retrofit2:adapter-rxjava2:$retrofitVersion"
+    implementation "com.squareup.retrofit2:adapter-rxjava:$retrofitVersion"
     implementation "com.squareup.retrofit2:converter-gson:$retrofitVersion"
 
-    // okHttp
+    // Networking
     implementation "com.squareup.okhttp3:okhttp:$okhttpVersion"
+    implementation "com.squareup.okhttp3:logging-interceptor:$okhttpVersion"
+    implementation "com.google.code.gson:gson:$gsonVersion"
     implementation "com.squareup.okhttp3:logging-interceptor:$okhttpVersion"
 }
