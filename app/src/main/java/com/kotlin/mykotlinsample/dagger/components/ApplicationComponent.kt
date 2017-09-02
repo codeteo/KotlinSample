@@ -1,6 +1,7 @@
 package com.kotlin.mykotlinsample.dagger.components
 
 import android.app.Application
+import android.content.SharedPreferences
 import com.kotlin.mykotlinsample.dagger.modules.ApplicationModule
 import com.kotlin.mykotlinsample.utils.BaseUrlInterceptor
 import dagger.Component
@@ -20,6 +21,8 @@ interface ApplicationComponent {
     // Exposed dependencies downstream
 
     fun application(): Application
+
+    fun sharedPreferences(): SharedPreferences
 
     // exposes Interceptor to use it for testing with mockWebServer
     fun baseUrlInterceptor(): BaseUrlInterceptor
