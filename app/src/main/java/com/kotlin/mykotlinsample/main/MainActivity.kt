@@ -38,6 +38,8 @@ class MainActivity : AppCompatActivity(), MainMVP.View {
 
         component.inject(this)
 
+        presenter.doSomething()
+
     }
 
 }

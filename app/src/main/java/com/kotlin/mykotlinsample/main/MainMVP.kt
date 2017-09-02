@@ -11,7 +11,7 @@ interface MainMVP {
     }
 
     interface Presenter {
-
+        fun doSomething()
     }
 
 }
