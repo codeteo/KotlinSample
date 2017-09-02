@@ -6,4 +6,6 @@ package com.kotlin.mykotlinsample.main
 
 class MainPresenter(private val view: MainMVP.View) : MainMVP.Presenter {
 
+
+
 }
