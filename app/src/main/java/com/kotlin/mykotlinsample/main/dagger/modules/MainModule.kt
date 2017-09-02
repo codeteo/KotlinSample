@@ -1,5 +1,6 @@
 package com.kotlin.mykotlinsample.main.dagger.modules
 
+import com.kotlin.mykotlinsample.data.MoviesRepository
 import com.kotlin.mykotlinsample.main.MainMVP
 import com.kotlin.mykotlinsample.main.MainPresenter
 import com.kotlin.mykotlinsample.main.dagger.ActivityScope
@@ -17,8 +18,8 @@ class MainModule(private val view: MainMVP.View) {
 
     @Provides
     @ActivityScope
-    fun providesMainPresenter(): MainMVP.Presenter {
-        return MainPresenter(view)
+    fun providesMainPresenter(repository: MoviesRepository): MainMVP.Presenter {
+        return MainPresenter(view, repository)
     }
 
 }
