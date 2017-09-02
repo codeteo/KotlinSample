@@ -5,11 +5,11 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.widget.Button
 import android.widget.TextView
-import android.widget.Toast
 import butterknife.bindView
 import com.kotlin.mykotlinsample.MyApplication
 import com.kotlin.mykotlinsample.R
 import com.kotlin.mykotlinsample.main.dagger.components.DaggerMainComponent
+import com.kotlin.mykotlinsample.main.dagger.components.MainComponent
 import com.kotlin.mykotlinsample.main.dagger.modules.MainModule
 import javax.inject.Inject
 
@@ -24,43 +24,20 @@ class MainActivity : AppCompatActivity(), MainMVP.View {
     @Inject
     lateinit var presenter: MainMVP.Presenter
 
+    val component: MainComponent by lazy {
+        DaggerMainComponent
+                .builder()
+                .applicationComponent((application as MyApplication).applicationComponent)
+                .mainModule(MainModule(this))
+                .build()
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-//        (application as MyApplication).applicationComponent.inject(application)
+        component.inject(this)
 
-        DaggerMainComponent.builder()
-                .applicationComponent((application as MyApplication).applicationComponent)
-                .mainModule(MainModule(this))
-                .build()
-                .inject(this)
-
-/*
-        DaggerMainComponent.builder()
-                .build()
-                .inject(this)
-*/
-
-        btnHi.setOnClickListener{
-            toast(increment().toString())
-        }
-
-    }
-
-    fun toast(msg: String) {
-        Toast.makeText(this, "Clicked : $msg", Toast.LENGTH_LONG).show()
-    }
-
-    fun increment(): Int {
-        val counterString = tvIncrement.text.toString()
-
-        var counter: Int = Integer.parseInt(counterString)
-        counter++
-
-        tvIncrement.text = counter.toString()
-
-        return counter
     }
 
 }
