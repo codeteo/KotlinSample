@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
 import butterknife.bindView
 import com.kotlin.mykotlinsample.MyApplication
 import com.kotlin.mykotlinsample.R
@@ -42,4 +43,7 @@ class MainActivity : AppCompatActivity(), MainMVP.View {
 
     }
 
+    override fun showToast() {
+        Toast.makeText(this, "SomeText", Toast.LENGTH_SHORT).show()
+    }
 }

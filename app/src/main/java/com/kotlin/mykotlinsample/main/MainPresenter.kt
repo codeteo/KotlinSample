@@ -11,6 +11,7 @@ class MainPresenter @Inject constructor(private val view: MainMVP.View) : MainMV
 
     override fun doSomething() {
         Log.i("something", "here")
+        view.showToast()
     }
 
 }

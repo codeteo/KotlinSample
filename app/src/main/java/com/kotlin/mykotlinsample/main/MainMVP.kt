@@ -7,7 +7,7 @@ package com.kotlin.mykotlinsample.main
 interface MainMVP {
 
     interface View {
-
+        fun showToast()
     }
 
     interface Presenter {
