@@ -84,12 +84,4 @@ dependencies {
     implementation "io.reactivex:rxandroid:$rxAndroidVersion"
     implementation "io.reactivex:rxjava:$rxJavaVersion"
     implementation "com.jakewharton.rxbinding:rxbinding:$rxBindingsVersion"
-
-    //Google AutoValue
-    provided "com.google.auto.value:auto-value:$autoValueVersion"
-    annotationProcessor "com.google.auto.value:auto-value:$autoValueVersion"
-    annotationProcessor "com.ryanharter.auto.value:auto-value-parcel:0.2.5"
-    annotationProcessor "com.ryanharter.auto.value:auto-value-gson:0.5.0"
-    provided "com.ryanharter.auto.value:auto-value-gson:0.5.0"
-    annotationProcessor "com.gabrielittner.auto.value:auto-value-with:1.0.0"
 }
