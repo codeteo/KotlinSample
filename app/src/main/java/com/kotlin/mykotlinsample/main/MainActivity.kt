@@ -11,7 +11,7 @@ import com.kotlin.mykotlinsample.MyApplication
 import com.kotlin.mykotlinsample.R
 import javax.inject.Inject
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), MainMVP.View {
 
     val tvHello: TextView by bindView(R.id.tv_hello)
     val tvIncrement: TextView by bindView(R.id.tv_increment)

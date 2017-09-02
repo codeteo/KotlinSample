@@ -17,7 +17,7 @@ interface ApplicationComponent {
 
     fun inject(application: Application)
 
-    // Provides
+    // Exposed dependencies downstream
 
     fun application(): Application
 
