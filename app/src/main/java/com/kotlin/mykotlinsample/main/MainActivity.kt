@@ -25,7 +25,7 @@ class MainActivity : AppCompatActivity(), MainMVP.View {
     @Inject
     lateinit var presenter: MainMVP.Presenter
 
-    val component: MainComponent by lazy {
+    private val component: MainComponent by lazy {
         DaggerMainComponent
                 .builder()
                 .applicationComponent((application as MyApplication).applicationComponent)
