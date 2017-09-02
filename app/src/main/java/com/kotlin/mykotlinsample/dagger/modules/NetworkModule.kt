@@ -5,10 +5,15 @@ import com.google.gson.GsonBuilder
 import com.kotlin.mykotlinsample.utils.BaseUrlInterceptor
 import dagger.Module
 import dagger.Provides
+import okhttp3.HttpUrl
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
+import retrofit2.Retrofit
+import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory
+import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
-import javax.inject.Singleton
+
+
 
 
 /**
@@ -16,18 +21,16 @@ import javax.inject.Singleton
  */
 
 @Module
-class NetworkModule() {
+class NetworkModule {
 
     val CONNECTION_TIMEOUT = 15
 
     @Provides
-    @Singleton
-    fun provisGson(): Gson {
+    fun providesGson(): Gson {
         return GsonBuilder().create()
     }
 
     @Provides
-    @Singleton
     fun providesOkHttpClient(baseUrlInterceptor: BaseUrlInterceptor): OkHttpClient {
 
         val interceptor = HttpLoggingInterceptor()
@@ -40,6 +43,16 @@ class NetworkModule() {
         client.connectTimeout(CONNECTION_TIMEOUT.toLong(), TimeUnit.SECONDS)
 
         return client.build()
+    }
+
+    @Provides
+    fun providesRetrofit(baseUrl: HttpUrl, client: OkHttpClient, gson: Gson): Retrofit {
+        return Retrofit.Builder()
+                .client(client)
+                .baseUrl(baseUrl)
+                .addConverterFactory(GsonConverterFactory.create(gson))
+                .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
+                .build()
     }
 
 }

@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        (application as MyApplication).applicationComponent.inject(this)
+        (application as MyApplication).applicationComponent.inject(application)
 
         tvHello.text = resources.getString(R.string.tv_hello)
 
