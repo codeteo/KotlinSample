@@ -41,6 +41,8 @@ class MainActivity : AppCompatActivity(), MainMVP.View {
 
         presenter.doSomething()
 
+        presenter.loadMovies()
+
     }
 
     override fun showToast() {
