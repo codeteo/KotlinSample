@@ -41,6 +41,10 @@ ext {
     okhttpVersion = '3.7.0'
     gsonVersion = '2.8.1'
     daggerVersion = '2.10'
+    rxJavaVersion = '1.2.4'
+    rxAndroidVersion = '1.2.1'
+    rxBindingsVersion = '1.0.1'
+    autoValueVersion = '1.4.1'
 }
 
 dependencies {
@@ -71,4 +75,17 @@ dependencies {
     implementation "com.squareup.okhttp3:logging-interceptor:$okhttpVersion"
     implementation "com.google.code.gson:gson:$gsonVersion"
     implementation "com.squareup.okhttp3:logging-interceptor:$okhttpVersion"
+
+    // Rx
+    implementation "io.reactivex:rxandroid:$rxAndroidVersion"
+    implementation "io.reactivex:rxjava:$rxJavaVersion"
+    implementation "com.jakewharton.rxbinding:rxbinding:$rxBindingsVersion"
+
+    //Google AutoValue
+    provided "com.google.auto.value:auto-value:$autoValueVersion"
+    annotationProcessor "com.google.auto.value:auto-value:$autoValueVersion"
+    annotationProcessor "com.ryanharter.auto.value:auto-value-parcel:0.2.5"
+    annotationProcessor "com.ryanharter.auto.value:auto-value-gson:0.5.0"
+    provided "com.ryanharter.auto.value:auto-value-gson:0.5.0"
+    annotationProcessor "com.gabrielittner.auto.value:auto-value-with:1.0.0"
 }
