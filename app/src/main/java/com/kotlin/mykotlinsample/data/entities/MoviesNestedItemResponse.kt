@@ -1,11 +1,17 @@
 package com.kotlin.mykotlinsample.data.entities
 
+import android.annotation.SuppressLint
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.android.parcel.Parcelize
 
 
 /**
  * Nested class of [MoviesResponse]
  */
+
+@SuppressLint("ParcelCreator")
+@Parcelize
 data class MoviesNestedItemResponse (
         @SerializedName("vote_average") val voteAverage: String,
         @SerializedName("backdrop_path") val backdropPath: String,
@@ -21,4 +27,4 @@ data class MoviesNestedItemResponse (
         @SerializedName("poster_path") val posterPath: String,
         @SerializedName("video") val video: String,
         @SerializedName("popularity") val popularity: String
-)
+) : Parcelable

@@ -35,6 +35,10 @@ def getApiKey(){
     return props['API_KEY']
 }
 
+androidExtensions {
+    experimental = true
+}
+
 ext {
     supportLibVersion = '26.0.1'
     retrofitVersion = '2.2.0'
