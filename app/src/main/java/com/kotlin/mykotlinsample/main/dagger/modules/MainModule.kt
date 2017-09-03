@@ -1,6 +1,6 @@
 package com.kotlin.mykotlinsample.main.dagger.modules
 
-import com.kotlin.mykotlinsample.data.MoviesRepository
+import com.kotlin.mykotlinsample.domain.GetMoviesUseCase
 import com.kotlin.mykotlinsample.main.MainMVP
 import com.kotlin.mykotlinsample.main.MainPresenter
 import com.kotlin.mykotlinsample.main.dagger.ActivityScope
@@ -19,8 +19,8 @@ class MainModule(private val view: MainMVP.View) {
 
     @Provides
     @ActivityScope
-    fun providesMainPresenter(repository: MoviesRepository, schedulerProvider: BaseSchedulerProvider): MainMVP.Presenter {
-        return MainPresenter(view, repository, schedulerProvider)
+    fun providesMainPresenter(getMoviesUseCase: GetMoviesUseCase, schedulerProvider: BaseSchedulerProvider): MainMVP.Presenter {
+        return MainPresenter(view, getMoviesUseCase, schedulerProvider)
     }
 
 }

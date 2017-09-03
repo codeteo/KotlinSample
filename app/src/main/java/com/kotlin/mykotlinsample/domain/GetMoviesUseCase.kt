@@ -1,6 +1,6 @@
 package com.kotlin.mykotlinsample.domain
 
-import com.kotlin.mykotlinsample.data.entities.MoviesResponse
+import com.kotlin.mykotlinsample.data.entities.Movie
 import rx.Observable
 
 
@@ -10,6 +10,6 @@ import rx.Observable
 
 interface GetMoviesUseCase  {
 
-    fun getMovies(): Observable<MoviesResponse>
+    fun getMovies(): Observable<Array<Movie>?>
 
 }

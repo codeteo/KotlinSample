@@ -1,6 +1,6 @@
 package com.kotlin.mykotlinsample.main
 
-import com.kotlin.mykotlinsample.data.MoviesRepository
+import com.kotlin.mykotlinsample.domain.GetMoviesUseCase
 import com.kotlin.mykotlinsample.utils.schedulers.BaseSchedulerProvider
 import rx.Subscription
 import rx.subscriptions.CompositeSubscription
@@ -16,13 +16,13 @@ import javax.inject.Inject
 class MainPresenter
     @Inject constructor(
         private val view: MainMVP.View,
-        private val repository: MoviesRepository,
+        private val getMoviesUseCase: GetMoviesUseCase,
         private val schedulerProvider: BaseSchedulerProvider) : MainMVP.Presenter {
 
     private val subscriptions: CompositeSubscription = CompositeSubscription()
 
     override fun loadMovies() {
-        val sub: Subscription = repository.loadMovies()
+        val sub: Subscription = getMoviesUseCase.getMovies()
                 .observeOn(schedulerProvider.androidMainThread())
                 .subscribe({
                     Timber.i("Hello World-- NEXT")
