@@ -1,7 +1,7 @@
 package com.kotlin.mykotlinsample.data.source.local
 
 import com.kotlin.mykotlinsample.data.MoviesDataSource
-import com.kotlin.mykotlinsample.data.entities.MoviesResponse
+import com.kotlin.mykotlinsample.data.entities.Movie
 import rx.Observable
 
 /**
@@ -10,7 +10,7 @@ import rx.Observable
 
 class MoviesLocalDataSource : MoviesDataSource {
 
-    override fun loadMovies(): Observable<MoviesResponse> {
+    override fun loadMovies(): Observable<Array<Movie>?> {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 

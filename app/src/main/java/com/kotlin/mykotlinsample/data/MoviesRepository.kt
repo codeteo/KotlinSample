@@ -1,6 +1,6 @@
 package com.kotlin.mykotlinsample.data
 
-import com.kotlin.mykotlinsample.data.entities.MoviesResponse
+import com.kotlin.mykotlinsample.data.entities.Movie
 import rx.Observable
 import javax.inject.Inject
 
@@ -14,7 +14,7 @@ class MoviesRepository
             @Local private val local: MoviesDataSource,
             @Remote private val  remote: MoviesDataSource) : MoviesDataSource {
 
-    override fun loadMovies(): Observable<MoviesResponse> {
+    override fun loadMovies(): Observable<Array<Movie>?> {
         return remote.loadMovies()
     }
 

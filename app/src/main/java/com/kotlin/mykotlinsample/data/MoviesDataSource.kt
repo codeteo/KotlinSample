@@ -1,6 +1,6 @@
 package com.kotlin.mykotlinsample.data
 
-import com.kotlin.mykotlinsample.data.entities.MoviesResponse
+import com.kotlin.mykotlinsample.data.entities.Movie
 import rx.Observable
 
 /**
@@ -9,7 +9,7 @@ import rx.Observable
 
 interface MoviesDataSource {
 
-    fun loadMovies(): Observable<MoviesResponse>
+    fun loadMovies(): Observable<Array<Movie>?>
 
     fun addMovie()
 

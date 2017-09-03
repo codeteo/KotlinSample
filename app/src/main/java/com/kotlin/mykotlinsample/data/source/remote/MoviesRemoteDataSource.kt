@@ -2,7 +2,8 @@ package com.kotlin.mykotlinsample.data.source.remote
 
 import com.kotlin.mykotlinsample.Constants
 import com.kotlin.mykotlinsample.data.MoviesDataSource
-import com.kotlin.mykotlinsample.data.entities.MoviesResponse
+import com.kotlin.mykotlinsample.data.entities.Movie
+import com.kotlin.mykotlinsample.data.entities.mappers.MovieMapper
 import com.kotlin.mykotlinsample.utils.schedulers.BaseSchedulerProvider
 import rx.Observable
 import javax.inject.Inject
@@ -15,8 +16,22 @@ class MoviesRemoteDataSource
     @Inject constructor(private val services: MoviesApiServices,
                         private val schedulerProvider: BaseSchedulerProvider) : MoviesDataSource {
 
-    override fun loadMovies(): Observable<MoviesResponse> {
+    override fun loadMovies(): Observable<Array<Movie>?> {
         return services.getMostPopular(Constants.API_KEY)
+                .map({ (results) ->
+                    results
+                })
+                .map({ res ->
+
+                    val movieArray: Array<Movie>? = null
+
+                    for ((index, nestedItem) in res!!.withIndex()) {
+                        movieArray?.set(index, MovieMapper(nestedItem).from())
+                    }
+
+                    return@map movieArray
+
+                })
                 .subscribeOn(schedulerProvider.io())
     }
 
