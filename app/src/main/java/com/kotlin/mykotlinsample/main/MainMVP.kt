@@ -12,6 +12,7 @@ interface MainMVP {
 
     interface Presenter {
         fun loadMovies()
+        fun unsubscribe()
     }
 
 }
