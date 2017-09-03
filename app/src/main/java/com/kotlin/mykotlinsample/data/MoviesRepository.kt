@@ -15,7 +15,7 @@ class MoviesRepository
             @Remote private val  remote: MoviesDataSource) : MoviesDataSource {
 
     override fun loadMovies(): Observable<MoviesResponse> {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        return remote.loadMovies()
     }
 
     override fun addMovie() {

@@ -1,6 +1,5 @@
 package com.kotlin.mykotlinsample.main
 
-import android.content.SharedPreferences
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.widget.Button
@@ -20,15 +19,12 @@ class MainActivity : AppCompatActivity(), MainMVP.View {
     val btnHi: Button by bindView(R.id.btn_hi)
 
     @Inject
-    lateinit var sharedPreferences: SharedPreferences
-
-    @Inject
     lateinit var presenter: MainMVP.Presenter
 
     private val component: MainComponent by lazy {
         DaggerMainComponent
                 .builder()
-                .applicationComponent((application as MyApplication).applicationComponent)
+                .networkComponent((application as MyApplication).networkComponent)
                 .mainModule(MainModule(this))
                 .build()
     }
