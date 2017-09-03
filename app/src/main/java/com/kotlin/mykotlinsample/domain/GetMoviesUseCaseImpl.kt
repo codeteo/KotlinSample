@@ -1,6 +1,6 @@
 package com.kotlin.mykotlinsample.domain
 
-import com.kotlin.mykotlinsample.data.MoviesRepository
+import com.kotlin.mykotlinsample.data.MoviesDataSource
 import com.kotlin.mykotlinsample.data.entities.Movie
 import rx.Observable
 import javax.inject.Inject
@@ -11,7 +11,7 @@ import javax.inject.Inject
 
 class GetMoviesUseCaseImpl
     @Inject constructor(
-            private val repository: MoviesRepository): GetMoviesUseCase {
+            private val repository: MoviesDataSource): GetMoviesUseCase {
 
     override fun getMovies(): Observable<Array<Movie>?> {
         return repository.loadMovies()
