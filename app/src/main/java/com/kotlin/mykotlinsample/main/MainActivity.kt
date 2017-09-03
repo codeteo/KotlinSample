@@ -11,7 +11,6 @@ import com.kotlin.mykotlinsample.R
 import com.kotlin.mykotlinsample.main.dagger.components.DaggerMainComponent
 import com.kotlin.mykotlinsample.main.dagger.components.MainComponent
 import com.kotlin.mykotlinsample.main.dagger.modules.MainModule
-import timber.log.Timber
 import javax.inject.Inject
 
 class MainActivity : AppCompatActivity(), MainMVP.View {
@@ -36,18 +35,11 @@ class MainActivity : AppCompatActivity(), MainMVP.View {
 
         component.inject(this)
 
-        presenter.doSomething()
-
         presenter.loadMovies()
-                .subscribe({
-                    Timber.i("Hello World-- NEXT")
-                }, {
-                    Timber.i("Hello World--- ERROR")
-                })
 
     }
 
-    override fun showToast() {
-        Toast.makeText(this, "SomeText", Toast.LENGTH_SHORT).show()
+    override fun showToast(msg: String) {
+        Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
     }
 }

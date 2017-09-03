@@ -27,7 +27,7 @@ import java.util.concurrent.TimeUnit
 @Module
 class NetworkModule {
 
-    val CONNECTION_TIMEOUT = 15
+    private val CONNECTION_TIMEOUT = 15
 
     @Provides
     fun providesGson(): Gson {

@@ -1,8 +1,5 @@
 package com.kotlin.mykotlinsample.main
 
-import com.kotlin.mykotlinsample.data.entities.MoviesResponse
-import rx.Observable
-
 /**
  * Contract class for [MainActivity] between View and Presenter. Helps to implement
  * MVP pattern
@@ -10,13 +7,11 @@ import rx.Observable
 interface MainMVP {
 
     interface View {
-        fun showToast()
+        fun showToast(msg: String)
     }
 
     interface Presenter {
-        fun doSomething()
-
-        fun loadMovies(): Observable<MoviesResponse>
+        fun loadMovies()
     }
 
 }

@@ -1,9 +1,7 @@
 package com.kotlin.mykotlinsample.main
 
-import android.util.Log
 import com.kotlin.mykotlinsample.data.MoviesRepository
-import com.kotlin.mykotlinsample.data.entities.MoviesResponse
-import rx.Observable
+import com.kotlin.mykotlinsample.utils.schedulers.BaseSchedulerProvider
 import timber.log.Timber
 import javax.inject.Inject
 
@@ -12,18 +10,21 @@ import javax.inject.Inject
  */
 
 class MainPresenter
-    @Inject constructor(
+@Inject constructor(
         private val view: MainMVP.View,
-        private val repository: MoviesRepository) : MainMVP.Presenter {
+        private val repository: MoviesRepository,
+        private val schedulerProvider: BaseSchedulerProvider) : MainMVP.Presenter {
 
-    override fun loadMovies(): Observable<MoviesResponse> {
-        Timber.i("MESA STON PRESENTER")
-        return repository.loadMovies()
-    }
-
-    override fun doSomething() {
-        Log.i("something", "here")
-        view.showToast()
+    override fun loadMovies() {
+        repository.loadMovies()
+                .observeOn(schedulerProvider.androidMainThread())
+                .subscribe({
+                    Timber.i("Hello World-- NEXT")
+                    view.showToast("Success")
+                }, {
+                    Timber.i("Hello World--- ERROR")
+                    view.showToast("Error")
+                })
     }
 
 }
