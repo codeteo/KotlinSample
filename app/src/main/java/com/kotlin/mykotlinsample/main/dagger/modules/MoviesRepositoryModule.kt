@@ -7,6 +7,7 @@ import com.kotlin.mykotlinsample.data.source.local.MoviesLocalDataSource
 import com.kotlin.mykotlinsample.data.source.remote.MoviesApiServices
 import com.kotlin.mykotlinsample.data.source.remote.MoviesRemoteDataSource
 import com.kotlin.mykotlinsample.main.dagger.ActivityScope
+import com.kotlin.mykotlinsample.utils.schedulers.BaseSchedulerProvider
 import dagger.Module
 import dagger.Provides
 
@@ -27,8 +28,8 @@ class MoviesRepositoryModule {
     @Remote
     @ActivityScope
     @Provides
-    fun providesMoviesRemoteDataSource(services: MoviesApiServices): MoviesDataSource {
-        return MoviesRemoteDataSource(services)
+    fun providesMoviesRemoteDataSource(services: MoviesApiServices, schedulerProvider: BaseSchedulerProvider): MoviesDataSource {
+        return MoviesRemoteDataSource(services, schedulerProvider)
     }
 
 }
