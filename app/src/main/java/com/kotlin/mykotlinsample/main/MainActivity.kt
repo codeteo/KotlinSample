@@ -11,6 +11,7 @@ import com.kotlin.mykotlinsample.R
 import com.kotlin.mykotlinsample.main.dagger.components.DaggerMainComponent
 import com.kotlin.mykotlinsample.main.dagger.components.MainComponent
 import com.kotlin.mykotlinsample.main.dagger.modules.MainModule
+import timber.log.Timber
 import javax.inject.Inject
 
 class MainActivity : AppCompatActivity(), MainMVP.View {
@@ -38,6 +39,11 @@ class MainActivity : AppCompatActivity(), MainMVP.View {
         presenter.doSomething()
 
         presenter.loadMovies()
+                .subscribe({
+                    Timber.i("Hello World-- NEXT")
+                }, {
+                    Timber.i("Hello World--- ERROR")
+                })
 
     }
 

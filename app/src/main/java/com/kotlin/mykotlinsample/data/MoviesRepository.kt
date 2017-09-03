@@ -2,6 +2,7 @@ package com.kotlin.mykotlinsample.data
 
 import com.kotlin.mykotlinsample.data.entities.MoviesResponse
 import rx.Observable
+import timber.log.Timber
 import javax.inject.Inject
 
 /**
@@ -15,6 +16,7 @@ class MoviesRepository
             @Remote private val  remote: MoviesDataSource) : MoviesDataSource {
 
     override fun loadMovies(): Observable<MoviesResponse> {
+        Timber.i("MESA STO REPO")
         return remote.loadMovies()
     }
 

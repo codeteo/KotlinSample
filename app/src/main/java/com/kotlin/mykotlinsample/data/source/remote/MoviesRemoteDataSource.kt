@@ -15,7 +15,7 @@ class MoviesRemoteDataSource
     @Inject constructor(private val services: MoviesApiServices) : MoviesDataSource {
 
     override fun loadMovies(): Observable<MoviesResponse> {
-        Timber.i("MESA")
+        Timber.i("MESA STO REMOTE")
         return services.getMostPopular(Constants.API_KEY)
     }
 
