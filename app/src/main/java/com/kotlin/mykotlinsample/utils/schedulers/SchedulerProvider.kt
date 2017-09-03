@@ -6,11 +6,13 @@ import rx.schedulers.Schedulers
 
 /**
  * Provides different types of schedulers.
+ *
+ * Kotlin is an amazing language and all we need to do to get a Singleton
+ * class is to use **object** keyword.
+ * Read more about objects in Kotlin [here](https://antonioleiva.com/objects-kotlin/).
  */
 
-class SchedulerProvider
-    private constructor() // Prevent direct instantiation.
-        : BaseSchedulerProvider {
+object SchedulerProvider : BaseSchedulerProvider {
 
     override fun computation(): Scheduler {
         return Schedulers.computation()

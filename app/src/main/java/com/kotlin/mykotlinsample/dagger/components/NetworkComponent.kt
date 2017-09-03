@@ -2,6 +2,7 @@ package com.kotlin.mykotlinsample.dagger.components
 
 import com.kotlin.mykotlinsample.dagger.NetworkScope
 import com.kotlin.mykotlinsample.dagger.modules.NetworkModule
+import com.kotlin.mykotlinsample.utils.schedulers.BaseSchedulerProvider
 import dagger.Component
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
@@ -14,4 +15,6 @@ interface NetworkComponent {
     fun okHttpClient(): OkHttpClient
 
     fun retrofit(): Retrofit
+
+    fun schedulers(): BaseSchedulerProvider
 }

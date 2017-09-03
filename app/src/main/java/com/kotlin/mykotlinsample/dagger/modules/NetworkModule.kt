@@ -3,6 +3,8 @@ package com.kotlin.mykotlinsample.dagger.modules
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.kotlin.mykotlinsample.utils.BaseUrlInterceptor
+import com.kotlin.mykotlinsample.utils.schedulers.BaseSchedulerProvider
+import com.kotlin.mykotlinsample.utils.schedulers.SchedulerProvider
 import dagger.Module
 import dagger.Provides
 import okhttp3.HttpUrl
@@ -12,6 +14,8 @@ import retrofit2.Retrofit
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
+
+
 
 
 
@@ -53,6 +57,11 @@ class NetworkModule {
                 .addConverterFactory(GsonConverterFactory.create(gson))
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                 .build()
+    }
+
+    @Provides
+    fun baseSchedulerProvider(): BaseSchedulerProvider {
+        return SchedulerProvider
     }
 
 }
