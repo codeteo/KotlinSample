@@ -28,8 +28,9 @@ class MainPresenter
                     Timber.i("Hello World-- NEXT")
                     view.showToast("Success")
                 }, {
-                    Timber.i("Hello World--- ERROR")
-                    view.showToast("Error")
+                    t ->
+                        Timber.i("Hello World--- ERROR : ", t.printStackTrace())
+                        view.showToast("Error")
                 })
 
         subscriptions.add(sub)

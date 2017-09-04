@@ -16,20 +16,20 @@ class MoviesRemoteDataSource
     @Inject constructor(private val services: MoviesApiServices,
                         private val schedulerProvider: BaseSchedulerProvider) : MoviesDataSource {
 
-    override fun loadMovies(): Observable<Array<Movie>?> {
+    override fun loadMovies(): Observable<List<Movie>> {
         return services.getMostPopular(Constants.API_KEY)
                 .map({ (results) ->
                     results
                 })
                 .map({ res ->
 
-                    val movieArray: Array<Movie>? = null
+                    val movieList: ArrayList<Movie> = ArrayList(res!!.size)
 
-                    for ((index, nestedItem) in res!!.withIndex()) {
-                        movieArray?.set(index, MovieMapper(nestedItem).from())
+                    for ((index, nestedItem) in res.withIndex()) {
+                        movieList.add(index, MovieMapper(nestedItem).from())
                     }
 
-                    return@map movieArray
+                    return@map movieList.toList()
 
                 })
                 .subscribeOn(schedulerProvider.io())

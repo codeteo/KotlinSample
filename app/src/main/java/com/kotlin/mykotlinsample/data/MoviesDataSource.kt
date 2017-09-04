@@ -9,7 +9,7 @@ import rx.Observable
 
 interface MoviesDataSource {
 
-    fun loadMovies(): Observable<Array<Movie>?>
+    fun loadMovies(): Observable<List<Movie>>
 
     fun addMovie()
 

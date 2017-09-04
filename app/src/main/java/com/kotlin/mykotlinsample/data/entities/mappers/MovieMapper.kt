@@ -14,21 +14,10 @@ class MovieMapper(private val nestedItem: MoviesNestedItemResponse) {
 
     fun from() : Movie {
 
-        movie.id = nestedItem.id
-        movie.title = nestedItem.title
-        movie.adult = nestedItem.adult
-        movie.backdropPath = nestedItem.backdropPath
-        movie.genrgeIds = nestedItem.genreIds
-        movie.originalLanguage = nestedItem.originalLanguage
-        movie.originalTitle = nestedItem.originalTitle
-        movie.overview = nestedItem.overview
-        movie.popularity = nestedItem.popularity
-        movie.posterPath = nestedItem.posterPath
-        movie.releaseDate = nestedItem.releaseData
-        movie.video = nestedItem.video
-        movie.voteAverage = nestedItem.voteAverage
-        movie.voteCount = nestedItem.voteCount
-
+        movie = Movie(nestedItem.id, nestedItem.title, nestedItem.overview, nestedItem.voteAverage,
+                    nestedItem.backdropPath, nestedItem.adult, nestedItem.originalLanguage, nestedItem.genreIds,
+                    nestedItem.releaseData, nestedItem.originalTitle, nestedItem.voteCount, nestedItem.posterPath,
+                    nestedItem.video, nestedItem.popularity)
         return movie
     }
 

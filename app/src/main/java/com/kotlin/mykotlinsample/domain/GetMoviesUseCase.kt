@@ -10,6 +10,6 @@ import rx.Observable
 
 interface GetMoviesUseCase  {
 
-    fun getMovies(): Observable<Array<Movie>?>
+    fun getMovies(): Observable<List<Movie>>
 
 }

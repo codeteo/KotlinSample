@@ -13,7 +13,7 @@ class GetMoviesUseCaseImpl
     @Inject constructor(
             private val repository: MoviesDataSource): GetMoviesUseCase {
 
-    override fun getMovies(): Observable<Array<Movie>?> {
+    override fun getMovies(): Observable<List<Movie>> {
         return repository.loadMovies()
     }
 }

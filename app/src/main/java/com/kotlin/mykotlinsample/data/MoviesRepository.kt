@@ -14,7 +14,7 @@ class MoviesRepository
             @Local private val local: MoviesDataSource,
             @Remote private val  remote: MoviesDataSource) : MoviesDataSource {
 
-    override fun loadMovies(): Observable<Array<Movie>?> {
+    override fun loadMovies(): Observable<List<Movie>> {
         return remote.loadMovies()
     }
 

@@ -10,7 +10,7 @@ import rx.Observable
 
 class MoviesLocalDataSource : MoviesDataSource {
 
-    override fun loadMovies(): Observable<Array<Movie>?> {
+    override fun loadMovies(): Observable<List<Movie>> {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
